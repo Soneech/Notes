@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6E6E6"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addNoteBtn"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/add_note_btn"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:backgroundTint="#4CAF50"
+        app:cornerRadius="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
