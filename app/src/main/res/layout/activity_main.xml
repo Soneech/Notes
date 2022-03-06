@@ -5,23 +5,54 @@
     android:id="@+id/Layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6E6E6"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/addNoteBtn"
-        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="40dp"
-        android:text="@string/add_note_btn"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:backgroundTint="#4CAF50"
-        app:cornerRadius="35dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="TextContrastCheck" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addNoteBtn"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="40dp"
+            android:text="@string/add_note_btn"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            app:backgroundTint="@color/green"
+            app:cornerRadius="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/noteView"
+            android:layout_width="360dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/white"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/noteBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,20 @@
 package com.example.notes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.notes.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, NoteWindow.OnNoteWindowDataListener {
     private ActivityMainBinding binding;
+    private NoteWindow noteWindow;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +29,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-        case R.id.addNoteBtn:
-
-            break;
-        default:
-            break;
+        if (view.getId() == R.id.addNoteBtn) {
+            noteWindow = new NoteWindow();
+            createNote(noteWindow);
         }
+    }
+
+    public void createNote(NoteWindow noteLayout) {
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+
+        fragmentTransaction.replace(R.id.noteBody, noteLayout);
+        fragmentTransaction.addToBackStack("stack");
+        fragmentTransaction.commit();
+    }
+
+    public void showNotesList() {  // инфа из бд
+
+    }
+
+    @Override
+    public void onNoteWindowDataListener(String noteTitle, String noteText, String dateTime) {
+        Log.d("DATA_FROM_FRAGMENT", noteTitle);
+        // fragmentTransaction.remove(noteWindow);
+        // showNotesList();
+        binding.noteView.setText(noteTitle);
     }
 }
